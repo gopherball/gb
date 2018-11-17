@@ -11,7 +11,10 @@ import gb.server
 
 log = logging.getLogger(__name__)
 
-modes = {"implicit": gb.server.ImplicitGopherServer, "explicit": gb.server.ExplicitGopherServer}
+modes = {
+    "implicit": gb.server.ImplicitGopherServer,
+    "explicit": gb.server.ExplicitGopherServer,
+}
 
 
 def bail(message):

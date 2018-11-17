@@ -12,6 +12,8 @@ class Document:
         chunks = []
 
         for entry in self.entries:
-            chunks.append(gb.protocol.template.format(e=entry) + gb.protocol.crlf)
+            chunks.append(
+                gb.protocol.template.format(e=entry) + gb.protocol.crlf
+            )
 
         return "".join(chunks)

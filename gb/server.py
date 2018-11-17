@@ -26,7 +26,11 @@ class GopherServer(tornado.tcpserver.TCPServer):
                 # If this is not a valid selector we immediately terminate
                 # the connection
                 if not gb.protocol.is_valid_selector(selector):
-                    log.warn("%s requested invalid selector %r, terminating.", address, selector)
+                    log.warn(
+                        "%s requested invalid selector %r, terminating.",
+                        address,
+                        selector,
+                    )
                     await self.close_stream(stream)
                     continue
 
