@@ -1,4 +1,9 @@
+.. image:: https://travis-ci.org/supakeen/gb.svg?branch=master
+    :target: https://travis-ci.org/supakeen/gb
+
 .. image:: https://readthedocs.org/projects/gb/badge/?version=latest
+    :target: https://gb.readthedocs.io/en/latest/
+
 
 gb
 ##
