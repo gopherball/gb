@@ -7,9 +7,6 @@
 .. image:: https://gb.readthedocs.io/en/latest/_static/license.svg
     :target: https://github.com/supakeen/gb/blob/master/LICENSE
 
-.. image:: https://pepy.tech/badge/gb
-    :target: https://pepy.tech/project/gb
-
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
     :target: https://github.com/ambv/black
 
