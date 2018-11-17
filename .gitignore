@@ -1,0 +1,6 @@
+venv/*
+*.egg-info
+.mypy_cache
+*.pyc
+.eggs
+docs/_build/*
