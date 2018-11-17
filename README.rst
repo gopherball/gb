@@ -1,6 +1,4 @@
 .. image:: https://readthedocs.org/projects/gb/badge/?version=latest
-:target: https://gb.readthedocs.io/en/latest/?badge=latest
-:alt: Documentation Status
 
 gb
 ##
