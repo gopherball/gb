@@ -2,6 +2,10 @@ import gb.protocol
 
 
 class Document:
+    """A document is and index of entries for a certain directory. It dictates
+      how those entries are joined together and if any extra information is
+      added."""
+
     def __init__(self):
         self.entries = []
 
@@ -9,11 +13,9 @@ class Document:
         self.entries.append(entry)
 
     def __str__(self):
-        chunks = []
-
-        for entry in self.entries:
-            chunks.append(
-                gb.protocol.template.format(e=entry) + gb.protocol.crlf
+        return (
+            gb.protocol.crlf.join(
+                gb.protocol.template.format(e=e) for e in self.entries
             )
-
-        return "".join(chunks)
+            + gb.protocol.crlf
+        )

@@ -1,7 +1,14 @@
-import gb.protocol
-
-
 class Entry:
+    """Gopher indexes contain entries of various types. This list is both
+       sourced from RFC 1436:
+
+       https://tools.ietf.org/html/rfc1436
+
+       and the Wikipedia page for non-standard types:
+
+       https://en.wikipedia.org/wiki/Gopher_(protocol)#Item_types"""
+
+    # TODO make this come from somewhere
     host = "localhost"
     port = "7070"
 

@@ -5,7 +5,9 @@ def relativize(base, path):
     """Join base and path making sure that the resulting path lies
        within the base. We do this by making path relative if it's an
        absolute path then verifying if it's still within the base after
-       joining."""
+       joining.
+
+       We fail hard if the calculated path is not within base."""
 
     base = os.path.abspath(base)
 

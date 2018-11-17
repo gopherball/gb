@@ -5,7 +5,6 @@ import logging
 import click
 import tornado.iostream
 
-import gb.shared
 import gb.server
 
 
@@ -72,8 +71,6 @@ def main(mode, host, port, path, verbose, magic):
         return bail("Invalid mode supplied.")
 
     logging.basicConfig(level=logging.INFO)
-
-    gb.shared.verbosity = verbose
 
     server = modes[mode](path, magic)
     server.listen(port)

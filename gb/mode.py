@@ -14,6 +14,9 @@ class Mode:
 
 
 class ImplicitMode(Mode):
+    """ImplicitMode looks up files recursively within a given path auto-
+       generating any required indexes."""
+
     def lookup(self, path):
         """Look up a path within our base path and return the contents in
            pre-rendered Gopher format!"""
@@ -55,6 +58,9 @@ class ImplicitMode(Mode):
 
 
 class ExplicitMode(Mode):
+    """ExplicitMode has not yet been implemented but will use a json file for
+       explicit mapping of selectors to files and their types."""
+
     def __init__(self, base_path, magic):
         self.base_path = os.path.abspath(base_path)
         self.magic = magic
