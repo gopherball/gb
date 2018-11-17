@@ -26,7 +26,7 @@ Quick examples to get you running.
 `gb --mode=implicit .` will start a gopher server on `127.0.0.1` port `7070` serving
 a recursive index of files starting from the current directory.
 
-`gb --mode=explit /home/user/explicit.json` will start a gopher server on 
+`gb --mode=explicit /home/user/explicit.json` will start a gopher server on 
 `127.0.0.1` port `7070` with an index generated from the passed configuration
 file. For the format of this file see `gb`'s documentation.
 
