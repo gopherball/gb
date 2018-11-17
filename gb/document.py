@@ -8,7 +8,7 @@ class Document:
     def add_entry(self, entry):
         self.entries.append(entry)
 
-    def as_bytes(self):
+    def __str__(self):
         chunks = []
 
         for entry in self.entries:

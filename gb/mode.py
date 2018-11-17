@@ -47,7 +47,7 @@ class ImplicitMode(Mode):
                 item(os.path.basename(entry), entry[len(self.base_path) :])
             )
 
-        return response.as_bytes()
+        return str(response)
 
     def _file(self, path):
         with open(path) as f:
