@@ -1,5 +1,5 @@
 language: python
 install:
-- pip install nose tornado click python-magic
+- pip install pytest pytest-cov tornado click python-magic
 script:
 - python setup.py test

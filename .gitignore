@@ -4,3 +4,4 @@ venv/*
 *.pyc
 .eggs
 docs/_build/*
+.coverage

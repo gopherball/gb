@@ -9,9 +9,9 @@ setup(
     author="supakeen",
     author_email="cmdr@supakeen.com",
     packages=[],
+    setup_requires=["pytest-runner", "pytest-cov"],
     install_requires=["tornado", "click", "python-magic"],
     entry_points={"console_scripts": ["gb=gb.command:main"]},
-    tests_require=["nose", "aiounittest"],
+    tests_require=["pytest", "pytest-cov"],
     extras_require={"dev": ["pre-commit", "flake8", "black", "nose"]},
-    test_suite="nose.collector",
 )
