@@ -42,9 +42,6 @@ class GopherServer(tornado.tcpserver.TCPServer):
                     await self.close_stream(stream)
                     continue
 
-                if not selector:
-                    selector = "/"
-
                 log.info("%s requested %r", address, selector)
 
                 # Use our mode specific lookup to get our response
