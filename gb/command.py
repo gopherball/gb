@@ -53,10 +53,17 @@ def bail(message):
     show_default=True,
     is_flag=True,
 )
+@click.option(
+    "--utf8",
+    "-u",
+    default=False,
+    help="Use UTF-8 as the default encoding instead of the standard ISO-8859-1",
+    is_flag=True,
+)
 @click.argument(
     "path", required=True, type=click.Path(exists=True), envvar="GB_PATH"
 )
-def main(mode, host, port, path, verbose, magic):
+def main(mode, host, port, path, verbose, magic, utf8):
     """`gb` or gopherball is a modern server for the Gopher protocol."""
 
     if port < 0 or port > 65535:
@@ -70,9 +77,14 @@ def main(mode, host, port, path, verbose, magic):
     if mode not in modes:
         return bail("Invalid mode supplied.")
 
+    if utf8:
+        encoding = "utf8"
+    else:
+        encoding = "iso-8859-1"
+
     logging.basicConfig(level=logging.INFO)
 
-    server = modes[mode](path, magic)
+    server = modes[mode](path, magic, encoding)
     server.listen(port)
     server.start(0)
 

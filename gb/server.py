@@ -26,7 +26,7 @@ class GopherServer(tornado.tcpserver.TCPServer):
             try:
                 # clean this up, split on \n but clean both
                 selector = await stream.read_until(b"\n")  # gb.protocol.crlf)
-                selector = selector.decode("ascii")
+                selector = selector.decode(self.encoding)
 
                 # clean this up, split on \n but clean both with \r
                 selector = gb.protocol.clean_selector(selector)
@@ -46,7 +46,7 @@ class GopherServer(tornado.tcpserver.TCPServer):
 
                 # Use our mode specific lookup to get our response
                 resp = await self.lookup(stream, selector)
-                resp = resp.encode("ascii")
+                resp = resp.encode(self.encoding)
 
                 # Write and exit the connection
                 await stream.write(resp)
@@ -58,8 +58,8 @@ class GopherServer(tornado.tcpserver.TCPServer):
     async def close_stream(self, stream):
         """Gopher connections are closed by writing a . on a single line then
            closing the underlying transport."""
-        await stream.write(gb.protocol.eof.encode("ascii"))
-        await stream.write(gb.protocol.crlf.encode("ascii"))
+        await stream.write(gb.protocol.eof.encode(self.encoding))
+        await stream.write(gb.protocol.crlf.encode(self.encoding))
         stream.close()
 
     async def lookup(self, stream, data):
@@ -72,9 +72,12 @@ class ImplicitGopherServer(GopherServer):
        while auto generating indexes for directories. If magic is enabled then
        the mode will auto-guess filetypes."""
 
-    def __init__(self, path, magic):
+    def __init__(self, path, magic, encoding):
         super().__init__()
+
         log.info("Starting ImplicitGopherServer with path %s", path)
+
+        self.encoding = encoding
         self.mode = gb.mode.ImplicitMode(path, magic)
 
 
