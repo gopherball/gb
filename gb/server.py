@@ -51,6 +51,10 @@ class GopherServer(tornado.tcpserver.TCPServer):
                 # Write and exit the connection
                 await stream.write(resp)
                 await self.close_stream(stream)
+            except ValueError:
+                log.warning("Looking up file %s failed", selector)
+                await self.close_stream(stream)
+                break
             except tornado.iostream.StreamClosedError:
                 log.debug("Lost connection from %s", address)
                 break

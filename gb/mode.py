@@ -30,6 +30,8 @@ class ImplicitMode(Mode):
             return self._directory(path)
         elif os.path.isfile(path):
             return self._file(path)
+        else:
+            raise ValueError()
 
     def _directory(self, path):
         """Render the files in a directory as gopher data."""
@@ -53,6 +55,9 @@ class ImplicitMode(Mode):
         return str(response)
 
     def _file(self, path):
+        # XXX this fails when in utf8 (or in general), read bytes and then
+        # XXX either use surrogateescape (or just return bytes) or only do
+        # XXX so for non-readable files
         with open(path) as f:
             return f.read()
 
