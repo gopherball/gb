@@ -12,10 +12,7 @@ def clean_selector(selector):
     """Strip the end off of a selector and normalize an empty one."""
     selector = selector.rstrip(crlf)
 
-    if selector == "":
-        selector = "/"
-
-    return selector
+    return selector if selector != "" else "/"
 
 
 def is_valid_selector(selector):
