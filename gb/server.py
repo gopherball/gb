@@ -40,7 +40,7 @@ class GopherServer(tornado.tcpserver.TCPServer):
                         selector,
                     )
                     await self.close_stream(stream)
-                    continue
+                    break
 
                 log.info("%s requested %r", address, selector)
 
@@ -52,7 +52,7 @@ class GopherServer(tornado.tcpserver.TCPServer):
                 await stream.write(resp)
                 await self.close_stream(stream)
             except ValueError:
-                log.warning("Looking up file %s failed", selector)
+                log.warning("Looking up file %r failed", selector)
                 await self.close_stream(stream)
                 break
             except tornado.iostream.StreamClosedError:
