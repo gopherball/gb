@@ -1,3 +1,10 @@
+.. image:: https://steck.readthedocs.io/en/latest/_static/logo-readme.png
+    :width: 950px
+    :align: center
+
+gb
+##
+
 .. image:: https://travis-ci.org/supakeen/gb.svg?branch=master
     :target: https://travis-ci.org/supakeen/gb
 
@@ -11,8 +18,8 @@
     :target: https://github.com/ambv/black
 
 
-gb
-##
+About
+=====
 
 ``gb`` or gopherball is a gopher server written in Python with the main goals of
 ease of use and integration. The name gopherball is inspired by a recurring
