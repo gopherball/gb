@@ -1,4 +1,4 @@
-.. image:: https://steck.readthedocs.io/en/latest/_static/logo-readme.png
+.. image:: https://gb.readthedocs.io/en/latest/_static/logo-readme.png
     :width: 950px
     :align: center
 
