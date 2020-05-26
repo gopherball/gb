@@ -38,8 +38,8 @@ a recursive index of files starting from the current directory.
 file. For the format of this file see ``gb``'s documentation.
 
 ``gb --mode=implicit --magic .`` will start ``gb`` in magic-mode on ``127.0.0.1`` port
-``7070``. Magic mode will make ``gb`` parse .txt files as templates. For more
-information on magic mode see ``gb``'s documentation.
+``7070``. Magic mode will make ``gb`` guess at filetypes and parse .gb files as
+templates. For more information on magic mode see ``gb``'s documentation.
 
 ``gb --mode=implicit --host="127.1.1.1" --port 1025 .`` will start ``gb`` in implicit
 mode on the chosen ip and port. Note that using ports under 1024 requires
