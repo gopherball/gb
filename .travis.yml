@@ -1,7 +1,13 @@
 language: python
 python:
 - "3.6"
+- "3.7"
+- "3.8"
 install:
-- pip install pytest pytest-cov tornado click python-magic
+- pip install -U pip setuptools wheel
+- pip install -U poetry
+- poetry install
 script:
-- python setup.py test
+- poetry run pytest --cov=gb
+after_script:
+- bash <(curl -s https://codecov.io/bash)
