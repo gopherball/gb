@@ -18,6 +18,8 @@ def relativize(base: str, path: str) -> str:
     dest = os.path.join(base, path)
     dest = os.path.abspath(dest)
 
+    print(base, dest)
+
     if os.path.commonprefix([base, dest]) != base:
         # TODO we want a better way to communicate this to our server
         # TODO so it can cleanly close the connection
