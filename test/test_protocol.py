@@ -1,13 +1,15 @@
-import unittest
+import pytest
 
 import gb.protocol
 
 
-class TestProtocolCleanSelector(unittest.TestCase):
-    def test_empty_selector(self,):
-        assert "/" == gb.protocol.clean_selector("\r\n")
-        assert "/" == gb.protocol.clean_selector("\n")
+@pytest.mark.parametrize("selector,result", [("\r\n", "/"), ("\n", "/")])
+def test_empty_selector(selector: str, result: str) -> None:
+    assert gb.protocol.clean_selector(selector) == result
 
-    def test_word_selector(self,):
-        assert "foo" == gb.protocol.clean_selector("foo\r\n")
-        assert "foo" == gb.protocol.clean_selector("foo\n")
+
+@pytest.mark.parametrize(
+    "selector,result", [("foo\r\n", "foo"), ("foo\n", "foo")]
+)
+def test_word_selector(selector: str, result: str) -> None:
+    assert gb.protocol.clean_selector(selector) == result
