@@ -1,9 +1,8 @@
-import unittest
+import pytest
 
 import gb.safe
 
 
-class TestSafeRelativize(unittest.TestCase):
-    def test_relative_path(self):
-        with self.assertRaises(Exception):
-            gb.safe.relativize("/tmp", "../../../")
+def test_relativize():
+    with pytest.raises(Exception):
+        gb.safe.relativize("/tmp", "../../../")
