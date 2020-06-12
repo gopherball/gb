@@ -8,16 +8,19 @@ import gb.magic
 
 
 class Mode:
-    def __init__(self, base_path, magic):
+    def __init__(self, base_path: str, magic: bool) -> None:
         self.base_path = os.path.abspath(base_path)
         self.magic = magic
+
+    def lookup(self, path: str) -> str:
+        raise NotImplementedError()
 
 
 class ImplicitMode(Mode):
     """ImplicitMode looks up files recursively within a given path auto-
        generating any required indexes."""
 
-    def lookup(self, path):
+    def lookup(self, path: str) -> str:
         """Look up a path within our base path and return the contents in
            pre-rendered Gopher format!"""
 
@@ -33,7 +36,7 @@ class ImplicitMode(Mode):
         else:
             raise ValueError()
 
-    def _directory(self, path):
+    def _directory(self, path: str) -> str:
         """Render the files in a directory as gopher data."""
         response = gb.document.Document()
 
@@ -44,9 +47,9 @@ class ImplicitMode(Mode):
                 item = gb.entry.Directory
             elif os.path.isfile(entry):
                 if self.magic:
-                    item = gb.magic.guess_type(entry)
+                    item = gb.magic.guess_type(entry)  # type: ignore
                 else:
-                    item = gb.entry.Binary
+                    item = gb.entry.Binary  # type: ignore
 
             response.add_entry(
                 item(os.path.basename(entry), entry[len(self.base_path) :])
@@ -54,7 +57,7 @@ class ImplicitMode(Mode):
 
         return str(response)
 
-    def _file(self, path):
+    def _file(self, path: str) -> str:
         # XXX this fails when in utf8 (or in general), read bytes and then
         # XXX either use surrogateescape (or just return bytes) or only do
         # XXX so for non-readable files
@@ -66,9 +69,6 @@ class ExplicitMode(Mode):
     """ExplicitMode has not yet been implemented but will use a json file for
        explicit mapping of selectors to files and their types."""
 
-    def __init__(self, base_path, magic):
+    def __init__(self, base_path: str, magic: bool) -> None:
         self.base_path = os.path.abspath(base_path)
         self.magic = magic
-
-    def lookup(self):
-        raise NotImplementedError

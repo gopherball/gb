@@ -16,7 +16,7 @@ modes = {
 }
 
 
-def bail(message):
+def bail(message: str) -> None:
     """Write a message to stderr and exit unsuccesfully."""
     print(message, file=sys.stderr)
     raise SystemExit(1)
@@ -63,19 +63,27 @@ def bail(message):
 @click.argument(
     "path", required=True, type=click.Path(exists=True), envvar="GB_PATH"
 )
-def main(mode, host, port, path, verbose, magic, utf8):
+def main(
+    mode: str,
+    host: str,
+    port: int,
+    path: click.Path,
+    verbose: int,
+    magic: bool,
+    utf8: bool,
+) -> int:
     """`gb` or gopherball is a modern server for the Gopher protocol."""
 
     if port < 0 or port > 65535:
-        return bail("Invalid port supplied.")
+        bail("Invalid port supplied.")
 
     try:
         host = ipaddress.ip_address(host)
     except ValueError:
-        return bail("Unparseable IP supplied.")
+        bail("Unparseable IP supplied.")
 
     if mode not in modes:
-        return bail("Invalid mode supplied.")
+        bail("Invalid mode supplied.")
 
     if utf8:
         encoding = "utf8"

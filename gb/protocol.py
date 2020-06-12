@@ -8,14 +8,14 @@ eof = "."
 template = "{e.code}{e.text}\t{e.selector}\t{e.host}\t{e.port}"
 
 
-def clean_selector(selector):
+def clean_selector(selector: str) -> str:
     """Strip the end off of a selector and normalize an empty one."""
     selector = selector.rstrip(crlf)
 
     return selector if selector != "" else "/"
 
 
-def is_valid_selector(selector):
+def is_valid_selector(selector: str) -> bool:
     """Validate the selector according to gopher rules."""
 
     # TODO implement <TAB> denoted search

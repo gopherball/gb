@@ -12,7 +12,7 @@ class Entry:
     host = "localhost"
     port = "7070"
 
-    def __init__(self, text, selector):
+    def __init__(self, text: str, selector: str) -> None:
         self.text = text
         self.selector = selector
 
@@ -24,7 +24,7 @@ class Text(Entry):
 class Directory(Entry):
     code = 1
 
-    def __init__(self, text, selector):
+    def __init__(self, text: str, selector: str) -> None:
         self.text = text + "/"
         self.selector = selector
 

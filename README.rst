@@ -81,11 +81,3 @@ Contributing
 The source code for ``gb`` lives on GitHub where you can also submit issues and
 pull requests. It mostly needs help by people with the ability to test in
 various clients and libraries that might still support the gopher protocol.
-
-Typing
-======
-An often asked question is why ``gb`` does not use any of Python 3.6+'s type
-annotations. The answer is quite simply that ``gb`` wants to support ``pypy`` as
-well as CPython. When ``pypy`` catches up to 3.6 type annotations will be added.
-
-``gb`` loves to run on ``pypy`` so give it a whirl!
