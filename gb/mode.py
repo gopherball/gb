@@ -38,6 +38,7 @@ class ImplicitMode(Mode):
 
     def _directory(self, path: str) -> str:
         """Render the files in a directory as gopher data."""
+
         response = gb.document.Document()
 
         for entry in os.listdir(path):
@@ -63,12 +64,3 @@ class ImplicitMode(Mode):
         # XXX so for non-readable files
         with open(path) as f:
             return f.read()
-
-
-class ExplicitMode(Mode):
-    """ExplicitMode has not yet been implemented but will use a json file for
-       explicit mapping of selectors to files and their types."""
-
-    def __init__(self, base_path: str, magic: bool) -> None:
-        self.base_path = os.path.abspath(base_path)
-        self.magic = magic

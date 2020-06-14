@@ -12,7 +12,6 @@ log = logging.getLogger(__name__)
 
 modes = {
     "implicit": gb.server.ImplicitGopherServer,
-    "explicit": gb.server.ExplicitGopherServer,
 }
 
 
@@ -92,7 +91,7 @@ def main(
 
     logging.basicConfig(level=logging.INFO)
 
-    server = modes[mode](path, magic, encoding)
+    server = modes[mode](str(path), magic, encoding)
     server.listen(port)
     server.start(0)
 

@@ -33,10 +33,6 @@ Quick examples to get you running.
 ``gb --mode=implicit .`` will start a gopher server on ``127.0.0.1`` port ``7070`` serving
 a recursive index of files starting from the current directory.
 
-``gb --mode=explicit /home/user/explicit.json`` will start a gopher server on 
-``127.0.0.1`` port ``7070`` with an index generated from the passed configuration
-file. For the format of this file see ``gb``'s documentation.
-
 ``gb --mode=implicit --magic .`` will start ``gb`` in magic-mode on ``127.0.0.1`` port
 ``7070``. Magic mode will make ``gb`` guess at filetypes and parse .gb files as
 templates. For more information on magic mode see ``gb``'s documentation.
@@ -52,20 +48,14 @@ framework for its networking.
 
 Modes
 =====
-``gb`` has two main modes of operation that are commonly used. Each has its
-appeal for differing usecases.
+``gb`` has one main mode of operation that is commonly used. More modes are
+planned for the future.
 
 implicit
 --------
 Implicit mode serves a directory recursively. Indexes are automatically
 generated and text files are served to the client. Data files are also
 supported.
-
-explicit
---------
-Explicit mode requires a configuration which maps each path to a certain
-asset. This mode will generate indexes not based on the file system but based
-on a configuration file.
 
 Magic
 =====

@@ -34,8 +34,8 @@ class GopherServer(tornado.tcpserver.TCPServer):
             try:
                 # clean this up, split on \n but clean both
                 selector_raw = await stream.read_until(
-                    b"\n"
-                )  # gb.protocol.crlf)
+                    gb.protocol.crlf.encode(self.encoding),
+                )
                 selector_dec = selector_raw.decode(self.encoding)
 
                 # clean this up, split on \n but clean both with \r
@@ -62,7 +62,7 @@ class GopherServer(tornado.tcpserver.TCPServer):
                 await stream.write(resp_enc)
                 await self.close_stream(stream)
             except ValueError:
-                log.warning("Looking up file %r failed", selector_dec)
+                log.warning("Looking up selector %r failed", selector_dec)
                 await self.close_stream(stream)
                 break
             except tornado.iostream.StreamClosedError:
@@ -93,7 +93,3 @@ class ImplicitGopherServer(GopherServer):
 
         self.encoding = encoding
         self.mode = gb.mode.ImplicitMode(path, magic)
-
-
-class ExplicitGopherServer(GopherServer):
-    pass
