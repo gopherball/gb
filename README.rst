@@ -34,8 +34,7 @@ Quick examples to get you running.
 a recursive index of files starting from the current directory.
 
 ``gb --mode=implicit --magic .`` will start ``gb`` in magic-mode on ``127.0.0.1`` port
-``7070``. Magic mode will make ``gb`` guess at filetypes and parse .gb files as
-templates. For more information on magic mode see ``gb``'s documentation.
+``7070``. Magic mode will make ``gb`` guess at filetypes.
 
 ``gb --mode=implicit --host="127.1.1.1" --port 1025 .`` will start ``gb`` in implicit
 mode on the chosen ip and port. Note that using ports under 1024 requires
@@ -62,9 +61,6 @@ Magic
 ``gb`` will serve all non-directories as type 9 files, these are non-readable
 files and most clients will prompt for download. Turning on magic with
 ``--magic`` will let ``gb`` try to determine the correct filetypes.
-
-Turning on magic will also start templating special ``.gb`` files. See
-documentation for what you can do with templating.
 
 Contributing
 ============
