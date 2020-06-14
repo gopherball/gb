@@ -5,7 +5,7 @@ import gb.entry
 
 
 class Document:
-    """A document is and index of entries for a certain directory. It dictates
+    """A document is an index of entries for a certain directory. It dictates
       how those entries are joined together and if any extra information is
       added."""
 
