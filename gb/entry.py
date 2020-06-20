@@ -8,11 +8,13 @@ class Entry:
 
        https://en.wikipedia.org/wiki/Gopher_(protocol)#Item_types"""
 
-    # TODO make this come from somewhere
-    host = "localhost"
-    port = "7070"
+    host: str
+    port: int
 
-    def __init__(self, text: str, selector: str) -> None:
+    def __init__(self, host: str, port: int, text: str, selector: str) -> None:
+        self.host = host
+        self.port = port
+
         self.text = text
         self.selector = selector
 
@@ -24,9 +26,10 @@ class Text(Entry):
 class Directory(Entry):
     code = 1
 
-    def __init__(self, text: str, selector: str) -> None:
+    def __init__(self, host: str, port: int, text: str, selector: str) -> None:
+        super().__init__(host, port, text, selector)
+
         self.text = text + "/"
-        self.selector = selector
 
 
 class CCSO(Entry):

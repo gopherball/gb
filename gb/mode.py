@@ -8,8 +8,13 @@ import gb.magic
 
 
 class Mode:
-    def __init__(self, base_path: str, magic: bool) -> None:
+    def __init__(
+        self, base_path: str, host: str, port: int, magic: bool
+    ) -> None:
         self.base_path = os.path.abspath(base_path)
+        self.host = host
+        self.port = port
+
         self.magic = magic
 
     def lookup(self, path: str) -> str:
@@ -53,7 +58,12 @@ class ImplicitMode(Mode):
                     item = gb.entry.Binary  # type: ignore
 
             response.add_entry(
-                item(os.path.basename(entry), entry[len(self.base_path) :])
+                item(
+                    self.host,
+                    self.port,
+                    os.path.basename(entry),
+                    entry[len(self.base_path) :],
+                )
             )
 
         return str(response)

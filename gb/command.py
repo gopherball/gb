@@ -91,7 +91,7 @@ def main(
 
     logging.basicConfig(level=logging.INFO)
 
-    server = modes[mode](str(path), magic, encoding)
+    server = modes[mode](str(path), "localhost", 7070, magic, encoding)
     server.listen(port)
     server.start(0)
 

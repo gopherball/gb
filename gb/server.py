@@ -86,10 +86,12 @@ class ImplicitGopherServer(GopherServer):
        while auto generating indexes for directories. If magic is enabled then
        the mode will auto-guess filetypes."""
 
-    def __init__(self, path: str, magic: bool, encoding: str) -> None:
+    def __init__(
+        self, path: str, host: str, port: int, magic: bool, encoding: str
+    ) -> None:
         super().__init__()
 
         log.info("Starting ImplicitGopherServer with path %s", path)
 
         self.encoding = encoding
-        self.mode = gb.mode.ImplicitMode(path, magic)
+        self.mode = gb.mode.ImplicitMode(path, host, port, magic)
