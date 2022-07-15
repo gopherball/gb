@@ -1,4 +1,4 @@
-![gb logo, a gopher in a ball](https://gb.readthedocs.io/en/latest/_static/logo-readme.png)
+![gb logo, a gopher in a ball](https://gb.readthedocs.io/en/latest/_static/logo-doc.png)
 
 # gb
 
