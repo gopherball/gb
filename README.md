@@ -43,6 +43,6 @@ files and most clients will prompt for download. Turning on magic with
 `--magic` will let `gb` try to determine the correct filetypes.
 
 ## Contributing
-The source code for `gb` lives on GitHub where you can also submit issues and
+The source code for `gb` lives on my Gitea where you can also submit issues and
 pull requests. It mostly needs help by people with the ability to test in
 various clients and libraries that might still support the gopher protocol.
