@@ -25,7 +25,7 @@ mode on the chosen ip and port. Note that using ports under 1024 requires
 superuser permissions!
 
 ## Technology
-`gb` is written with the help of Python 3.5 and higher and the Tornado
+`gb` is written with the help of Python 3.9 and higher and the Tornado
 framework for its networking.
 
 ## Modes
