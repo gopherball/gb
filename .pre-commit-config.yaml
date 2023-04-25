@@ -12,10 +12,10 @@ repos:
       pass_filenames: false
       entry: python -m pytest -q
       types: [python]
-    - id: flake8
-      name: flake8
+    - id: ruff
+      name: ruff
       language: system
-      entry: python -m flake8
+      entry: python -m ruff
       types: [python]
       exclude: ^doc/conf.py
     - id: mypy

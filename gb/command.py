@@ -26,7 +26,7 @@ def bail(message: str) -> None:
     "--mode",
     "-m",
     required=True,
-    type=click.Choice(modes.keys()),
+    type=click.Choice([str(mode) for mode in modes.keys()]),
     help="Mode to run as.",
 )
 @click.option(
@@ -48,7 +48,7 @@ def bail(message: str) -> None:
 @click.option(
     "--magic",
     default=False,
-    help="Enable magic mode which will try to guess filetypes by extension and content.",
+    help="Enable magic mode to try and guess filetypes by extension and content.",
     show_default=True,
     is_flag=True,
 )
@@ -77,7 +77,7 @@ def main(
         bail("Invalid port supplied.")
 
     try:
-        host = ipaddress.ip_address(host)
+        host = str(ipaddress.ip_address(host))
     except ValueError:
         bail("Unparseable IP supplied.")
 
