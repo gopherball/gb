@@ -2,11 +2,11 @@
 name = "gb"
 version = "0.1.1"
 description = "A Python gopher server."
-authors = ["supakeen <cmdr@supakeen.com>"]
+authors = ["Simon de Vlieger <cmdr@supakeen.com>"]
 license = "MIT"
 readme = "README.md"
-keywords = ["pastebin"]
-repository = "https://github.com/supakeen/pinnwand"
+keywords = ["gopher", "server"]
+repository = "https://src.tty.cat/supakeen/gb"
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python",
