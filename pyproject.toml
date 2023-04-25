@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gb"
-version = "0.0.0"
+version = "0.1.1"
 description = "A Python gopher server."
 authors = ["supakeen <cmdr@supakeen.com>"]
 license = "MIT"
