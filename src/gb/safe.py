@@ -3,11 +3,11 @@ import os
 
 def relativize(base: str, path: str) -> str:
     """Join base and path making sure that the resulting path lies
-       within the base. We do this by making path relative if it's an
-       absolute path then verifying if it's still within the base after
-       joining.
+    within the base. We do this by making path relative if it's an
+    absolute path then verifying if it's still within the base after
+    joining.
 
-       We fail hard if the calculated path is not within base."""
+    We fail hard if the calculated path is not within base."""
 
     base = os.path.abspath(base)
 

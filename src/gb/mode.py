@@ -23,11 +23,11 @@ class Mode:
 
 class ImplicitMode(Mode):
     """ImplicitMode looks up files recursively within a given path auto-
-       generating any required indexes."""
+    generating any required indexes."""
 
     def lookup(self, path: str) -> str:
         """Look up a path within our base path and return the contents in
-           pre-rendered Gopher format!"""
+        pre-rendered Gopher format!"""
 
         path = gb.safe.relativize(self.base_path, path)
 

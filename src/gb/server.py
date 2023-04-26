@@ -14,9 +14,9 @@ log = logging.getLogger(__name__)
 
 class GopherServer(tornado.tcpserver.TCPServer):
     """Generic tornado TCPServer which speaks the Gopher protocol. The Gopher
-       protocol is defined in RFC 1436:
+    protocol is defined in RFC 1436:
 
-       https://tools.ietf.org/html/rfc1436."""
+    https://tools.ietf.org/html/rfc1436."""
 
     # XXX TODO has to come from somewhere!
     encoding: str
@@ -26,7 +26,7 @@ class GopherServer(tornado.tcpserver.TCPServer):
         self, stream: tornado.iostream.IOStream, address: Tuple[Any, ...]
     ) -> None:
         """A new incoming connection. We wait silently until the client sends
-           a selector through after which we clean and parse that selector."""
+        a selector through after which we clean and parse that selector."""
 
         log.debug("Accepted connection from %s", address)
 
@@ -71,7 +71,7 @@ class GopherServer(tornado.tcpserver.TCPServer):
 
     async def close_stream(self, stream: tornado.iostream.IOStream) -> None:
         """Gopher connections are closed by writing a . on a single line then
-           closing the underlying transport."""
+        closing the underlying transport."""
         await stream.write(gb.protocol.eof.encode(self.encoding))
         await stream.write(gb.protocol.crlf.encode(self.encoding))
         stream.close()
@@ -83,8 +83,8 @@ class GopherServer(tornado.tcpserver.TCPServer):
 
 class ImplicitGopherServer(GopherServer):
     """The implicit gopher server serves files from a given path recursively
-       while auto generating indexes for directories. If magic is enabled then
-       the mode will auto-guess filetypes."""
+    while auto generating indexes for directories. If magic is enabled then
+    the mode will auto-guess filetypes."""
 
     def __init__(
         self, path: str, host: str, port: int, magic: bool, encoding: str

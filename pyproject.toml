@@ -12,6 +12,9 @@ classifiers = [
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
 ]
+packages = [
+    { include = "gb", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4"
