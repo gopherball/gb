@@ -32,6 +32,10 @@ ruff = "^0.0.263"
 [tool.poetry-dynamic-versioning]
 enable = true
 
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "--cov=gb test/"
+
 [tool.black]
 line-length = 80
 target_version = ["py36"]
