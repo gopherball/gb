@@ -1,0 +1,26 @@
+name: Check
+
+on: [pull_request, push]
+
+jobs:
+  lint_suite:
+    name: "Lint"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.11']
+    steps:
+    - name: "Clone Repository"
+      uses: actions/checkout@v3
+    - name: "Setup Python"
+      uses: actions/setup-python@v4
+      with:
+        python-version: "${{ matrix.python-version }}"
+    - name: "Install Dependencies"
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install tox tox-gh-actions
+    - name: "Tox"
+      run: |
+        tox -e lint
