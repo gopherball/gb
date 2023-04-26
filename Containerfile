@@ -14,4 +14,4 @@ RUN venv/bin/pip install gb
 
 EXPOSE 7070
 
-CMD ["/app/venv/bin/gb", "-m", "implicit", "/data"]
+CMD ["/app/venv/bin/gb", "-m", "implicit", "--magic", "/data"]
