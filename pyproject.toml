@@ -54,4 +54,5 @@ exclude = '''
 gb = 'gb.__main__:main'
 
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
