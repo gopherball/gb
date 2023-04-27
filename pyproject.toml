@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "gb"
-version = "0.1.3"
+version = "0.1.4"
 description = "A Python gopher library."
 authors = ["Simon de Vlieger <cmdr@supakeen.com>"]
 license = "MIT"
 readme = "README.md"
 keywords = ["gopher", "library"]
-repository = "https://github.com/supakeen/gb"
+repository = "https://github.com/gopherball/gb"
 classifiers = [
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python",
