@@ -18,8 +18,6 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4"
-tornado = "^6.0"
-click = "^8.0"
 python-magic = "^0.4.27"
 
 [tool.poetry.dev-dependencies]
